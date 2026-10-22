@@ -1,0 +1,7 @@
+version: 0
+
+resource:
+  type: machine
+  name: crucible/machine-default
+  description: Default Crucible machine image resource (Ubuntu 24.04 LTS).
+  version: 0.1.0
