@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-RELEASE_URL="https://cloud-images.ubuntu.com/releases/noble/release-20250610"
+RELEASE_URL="https://cloud-images.ubuntu.com/releases/noble/release-20261017"
 
 mkdir -p build
 cp crucible.yaml build/crucible.yaml

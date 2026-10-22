@@ -13,7 +13,7 @@ is implemented.
 This baseline uses the official Ubuntu 24.04 LTS (Noble Numbat) cloud images,
 pinned to an immutable release build so the artifact is reproducible:
 
-- https://cloud-images.ubuntu.com/releases/noble/release-20250610/
+- https://cloud-images.ubuntu.com/releases/noble/release-20261017/
 
 ## Required staged files
 
