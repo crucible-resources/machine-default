@@ -22,8 +22,8 @@ Place the following files in `build/` before packing:
 - `build/crucible.yaml`
 - `build/aarch64.qcow2`
 - `build/x86_64.qcow2`
-
-The qcow2 filenames must match the local backend's expected architecture names.
+- `build/cruxd-aarch64`
+- `build/cruxd-x86_64`
 
 ## Checksums
 
@@ -39,7 +39,9 @@ This fails if the staged images do not match the pinned release.
 ## Manual workflow
 
 ```sh
-./scripts/stage.sh   # download, stage, and verify
-crux pack            # pack
-crux push            # publish
+./scripts/stage.sh ../../cruxd
+crux pack
+crux push
 ```
+
+`stage.sh` takes the path to a cruxd checkout and needs Go to build it.
