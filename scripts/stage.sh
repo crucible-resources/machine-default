@@ -14,8 +14,11 @@ RELEASE_URL="https://cloud-images.ubuntu.com/releases/noble/release-20261017"
 
 mkdir -p "$BUILD_DIR"
 cp crucible.yaml "$BUILD_DIR/crucible.yaml"
-curl --proto '=https' --tlsv1.2 -fL "$RELEASE_URL/ubuntu-24.04-server-cloudimg-arm64.img" -o "$BUILD_DIR/aarch64.qcow2"
-curl --proto '=https' --tlsv1.2 -fL "$RELEASE_URL/ubuntu-24.04-server-cloudimg-amd64.img" -o "$BUILD_DIR/x86_64.qcow2"
+# Images already staged and matching SHA256SUMS are reused.
+if ! ./scripts/verify.sh >/dev/null 2>&1; then
+  curl --proto '=https' --tlsv1.2 -fL "$RELEASE_URL/ubuntu-24.04-server-cloudimg-arm64.img" -o "$BUILD_DIR/aarch64.qcow2"
+  curl --proto '=https' --tlsv1.2 -fL "$RELEASE_URL/ubuntu-24.04-server-cloudimg-amd64.img" -o "$BUILD_DIR/x86_64.qcow2"
+fi
 
 ./scripts/verify.sh
 
